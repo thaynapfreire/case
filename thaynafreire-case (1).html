@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thayná Freire | Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { font-family:'Sora',sans-serif; background:#f4f6f9; color:#0f1e3d; -webkit-font-smoothing:antialiased; }
+
+:root {
+  --navy:    #0f1e3d;
+  --blue:    #1a6cf6;
+  --blue-lt: #e8f0fe;
+  --blue-bd: #c7d9fd;
+  --white:   #ffffff;
+  --bg:      #f4f6f9;
+  --line:    #e2e8f0;
+  --ink2:    #334155;
+  --ink3:    #64748b;
+  --ink4:    #94a3b8;
+  --green:   #059669;
+  --green-lt:#ecfdf5;
+  --green-bd:#a7f3d0;
+  --red:     #dc2626;
+  --r:       20px;
+}
+
+/* NAV */
+nav {
+  position:fixed; top:0; left:0; right:0; z-index:200;
+  height:52px; display:flex; align-items:center; justify-content:space-between;
+  padding:0 40px;
+  background:rgba(255,255,255,0.96); backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line);
+}
+.nav-name { font-size:12px; font-weight:600; color:var(--navy); }
+.nav-links { display:flex; gap:6px; }
+.nav-btn {
+  height:30px; padding:0 14px; border-radius:100px;
+  border:1.5px solid var(--line); background:transparent;
+  cursor:pointer; font-size:11px; font-weight:600;
+  color:var(--ink4); font-family:'Sora',sans-serif;
+  transition:all .2s;
+}
+.nav-btn:hover { border-color:var(--blue); color:var(--blue); }
+.nav-btn.active { background:var(--navy); border-color:var(--navy); color:#fff; }
+
+/* SECTIONS */
+.section { padding:80px 40px 60px; }
+.inner { max-width:980px; margin:0 auto; }
+
+@keyframes up { from{opacity:0;transform:translateY(18px)} to{opacity:1;transform:translateY(0)} }
+.reveal { opacity:0; transform:translateY(18px); transition:opacity .55s cubic-bezier(.22,1,.36,1), transform .55s cubic-bezier(.22,1,.36,1); }
+.reveal.visible { opacity:1; transform:none; }
+
+/* ══ HERO ══ */
+#hero { background:var(--navy); padding-top:100px; padding-bottom:64px; }
+.hero-kicker {
+  font-size:10px; font-weight:700; letter-spacing:.2em; text-transform:uppercase;
+  color:rgba(255,255,255,.4); margin-bottom:18px;
+}
+.hero-name {
+  font-size:clamp(42px,6vw,72px); font-weight:700; color:#fff;
+  letter-spacing:-.03em; line-height:1; margin-bottom:16px;
+}
+.hero-roles { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:32px; }
+.role-tag {
+  font-size:11px; font-weight:600; letter-spacing:.04em;
+  background:rgba(255,255,255,.08); color:rgba(255,255,255,.7);
+  border:1px solid rgba(255,255,255,.12); border-radius:100px;
+  padding:6px 14px;
+}
+.role-tag.hi { background:var(--blue); color:#fff; border-color:var(--blue); }
+.hero-desc {
+  font-size:14px; font-weight:300; color:rgba(255,255,255,.6);
+  line-height:1.8; max-width:560px; margin-bottom:36px;
+}
+.hero-stats { display:flex; gap:32px; flex-wrap:wrap; }
+.stat-item { }
+.stat-n { font-size:32px; font-weight:700; color:#fff; letter-spacing:-.03em; line-height:1; }
+.stat-l { font-size:10px; font-weight:500; color:rgba(255,255,255,.4); letter-spacing:.06em; text-transform:uppercase; margin-top:4px; }
+
+/* ══ SOBRE ══ */
+#sobre { background:var(--bg); }
+.section-label {
+  font-size:10px; font-weight:700; letter-spacing:.2em; text-transform:uppercase;
+  color:var(--blue); margin-bottom:6px;
+}
+.section-divider { width:28px; height:2px; background:var(--blue); border-radius:2px; margin-bottom:28px; }
+.sobre-grid { display:grid; grid-template-columns:1fr 1fr; gap:3px; }
+.sobre-card { background:var(--white); border:1px solid var(--line); padding:28px 32px; }
+.sobre-card:first-child { border-radius:var(--r) 0 0 var(--r); }
+.sobre-card:last-child  { border-radius:0 var(--r) var(--r) 0; }
+.sc-title { font-size:15px; font-weight:600; color:var(--navy); margin-bottom:14px; }
+.sc-text  { font-size:13px; font-weight:300; color:var(--ink2); line-height:1.85; }
+.pill-grid { display:flex; flex-wrap:wrap; gap:6px; }
+.pill {
+  font-size:11px; font-weight:500; color:var(--ink2);
+  background:var(--bg); border:1px solid var(--line);
+  border-radius:100px; padding:5px 12px;
+}
+.pill.hi { background:var(--blue-lt); color:var(--blue); border-color:var(--blue-bd); }
+.pill.gr { background:var(--green-lt); color:var(--green); border-color:var(--green-bd); }
+
+/* ══ EXPERIÊNCIA ══ */
+#exp { background:var(--white); border-top:1px solid var(--line); }
+.exp-list { display:flex; flex-direction:column; gap:3px; }
+.exp-card {
+  background:var(--bg); border:1px solid var(--line);
+  border-radius:var(--r); padding:28px 32px;
+  display:grid; grid-template-columns:1fr auto; gap:16px;
+}
+.exp-role  { font-size:15px; font-weight:600; color:var(--navy); margin-bottom:4px; }
+.exp-co    { font-size:12px; font-weight:500; color:var(--blue); margin-bottom:12px; }
+.exp-period{ font-size:11px; color:var(--ink4); font-weight:400; align-self:start; white-space:nowrap; }
+.blist { list-style:none; display:flex; flex-direction:column; gap:7px; }
+.blist li {
+  font-size:12px; font-weight:300; color:var(--ink2);
+  padding-left:14px; position:relative; line-height:1.65;
+}
+.blist li::before {
+  content:''; position:absolute; left:0; top:7px;
+  width:4px; height:4px; border-radius:50%; background:var(--blue);
+}
+.blist li strong { font-weight:600; color:var(--navy); }
+
+/* ══ CASE ══ */
+#case { background:var(--bg); }
+.case-hero {
+  background:var(--navy); border-radius:var(--r);
+  padding:28px 40px; margin-bottom:3px;
+  display:grid; grid-template-columns:1fr auto; align-items:center; gap:24px;
+}
+.case-kicker-sm {
+  font-size:9px; font-weight:700; letter-spacing:.2em; text-transform:uppercase;
+  color:rgba(255,255,255,.4); margin-bottom:8px;
+}
+.case-title {
+  font-size:clamp(16px,2vw,22px); font-weight:700; color:#fff;
+  letter-spacing:-.01em; line-height:1.25;
+}
+.result-bubble {
+  background:#fff; border-radius:16px; padding:16px 28px; text-align:center; flex-shrink:0;
+}
+.rb-n { font-size:40px; font-weight:700; color:var(--navy); line-height:1; letter-spacing:-.03em; }
+.rb-l { font-size:9px; font-weight:700; color:var(--ink3); letter-spacing:.1em; text-transform:uppercase; margin-top:4px; }
+
+.bento {
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  grid-template-rows:auto auto;
+  gap:3px;
+}
+.bc { background:var(--white); border:1px solid var(--line); padding:24px 26px; }
+.bc-wide  { grid-column:1/3; border-radius:0; }
+.bc-tall  { grid-column:3; grid-row:1/3; border-radius:0 0 var(--r) 0; }
+.bc-bl    { border-radius:0 0 0 var(--r); }
+.bc-bm    { border-radius:0; }
+.bc-lbl {
+  font-size:10px; font-weight:700; letter-spacing:.18em; text-transform:uppercase;
+  color:var(--blue); margin-bottom:5px;
+}
+.bc-div { width:22px; height:2px; background:var(--blue); border-radius:2px; margin-bottom:16px; }
+.bc h3 { font-size:13px; font-weight:600; color:var(--navy); margin-bottom:8px; line-height:1.35; }
+.bc p  { font-size:12px; font-weight:300; color:var(--ink3); line-height:1.75; }
+.bc p strong { font-weight:600; color:var(--ink2); }
+
+.barchart { display:flex; flex-direction:column; gap:7px; margin-top:4px; }
+.bar-row { display:grid; grid-template-columns:70px 1fr 38px; align-items:center; gap:6px; }
+.bar-name { font-size:11px; color:var(--ink4); text-align:right; }
+.bar-track { background:var(--bg); border-radius:100px; height:6px; overflow:hidden; border:1px solid var(--line); }
+.bar-fill  { height:6px; border-radius:100px; }
+.bar-fill.red  { background:var(--red); }
+.bar-fill.blue { background:var(--blue); }
+.bar-val { font-size:10px; font-weight:600; color:var(--ink3); }
+
+.slist { display:flex; flex-direction:column; gap:10px; }
+.sitem { display:flex; gap:10px; align-items:flex-start; }
+.snum {
+  width:20px; height:20px; border-radius:50%; flex-shrink:0;
+  background:var(--blue-lt); color:var(--blue);
+  font-size:9px; font-weight:700;
+  display:flex; align-items:center; justify-content:center; margin-top:1px;
+}
+.sitem p { font-size:12px; font-weight:300; color:var(--ink2); line-height:1.65; }
+.sitem p strong { font-weight:600; color:var(--navy); }
+
+.sol-pair { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:4px; }
+.sol-item { background:var(--bg); border-radius:10px; padding:12px 14px; border:1px solid var(--line); }
+.si-tag   { font-size:9px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--ink4); margin-bottom:5px; }
+.si-title { font-size:12px; font-weight:600; color:var(--navy); margin-bottom:4px; }
+.si-desc  { font-size:11px; font-weight:300; color:var(--ink3); line-height:1.55; }
+
+.verbatim { background:var(--bg); border:1.5px solid var(--line); border-radius:10px; padding:14px; margin-top:14px; }
+.vb-tag  { font-size:9px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--blue); margin-bottom:6px; }
+.vb-text { font-size:13px; font-weight:300; font-style:italic; color:var(--navy); line-height:1.65; }
+
+/* ══ FORMAÇÃO & CERTS ══ */
+#form { background:var(--white); border-top:1px solid var(--line); }
+.two-col-grid { display:grid; grid-template-columns:1fr 1fr; gap:32px; }
+.fc-title { font-size:13px; font-weight:600; color:var(--navy); margin-bottom:3px; }
+.fc-sub   { font-size:11px; color:var(--ink4); font-weight:300; }
+.fc-entry { margin-bottom:16px; }
+.fc-entry:last-child { margin-bottom:0; }
+.cert-grid { display:flex; flex-direction:column; gap:10px; }
+.cert-item {
+  background:var(--bg); border:1px solid var(--line);
+  border-radius:10px; padding:12px 16px;
+  display:flex; justify-content:space-between; align-items:center;
+}
+.cert-name { font-size:12px; font-weight:600; color:var(--navy); margin-bottom:2px; }
+.cert-org  { font-size:11px; color:var(--ink4); font-weight:300; }
+.cert-year { font-size:11px; font-weight:600; color:var(--blue); }
+
+/* ══ FOOTER ══ */
+footer {
+  background:var(--navy); padding:40px;
+  text-align:center;
+}
+.footer-name { font-size:18px; font-weight:700; color:#fff; margin-bottom:8px; }
+.footer-links { display:flex; justify-content:center; gap:24px; flex-wrap:wrap; }
+.footer-links a {
+  font-size:12px; color:rgba(255,255,255,.5);
+  text-decoration:none; font-weight:400;
+  transition:color .2s;
+}
+.footer-links a:hover { color:#fff; }
+
+/* RESPONSIVE */
+@media(max-width:700px){
+  nav { padding:0 20px; }
+  .section { padding:72px 20px 48px; }
+  .sobre-grid { grid-template-columns:1fr; }
+  .sobre-card:first-child { border-radius:var(--r) var(--r) 0 0; }
+  .sobre-card:last-child  { border-radius:0 0 var(--r) var(--r); }
+  .bento { grid-template-columns:1fr; }
+  .bc-wide,.bc-tall,.bc-bl,.bc-bm { grid-column:1; grid-row:auto; border-radius:0; }
+  .bento .bc:last-child { border-radius:0 0 var(--r) var(--r); }
+  .case-hero { grid-template-columns:1fr; }
+  .result-bubble { width:fit-content; }
+  .two-col-grid { grid-template-columns:1fr; }
+  .exp-card { grid-template-columns:1fr; }
+  .sol-pair { grid-template-columns:1fr; }
+  footer { padding:40px 20px; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-name">Thayná Freire</span>
+  <div class="nav-links">
+    <button class="nav-btn active" onclick="goTo('hero')">Início</button>
+    <button class="nav-btn" onclick="goTo('sobre')">Sobre</button>
+    <button class="nav-btn" onclick="goTo('case')">Case</button>
+    <button class="nav-btn" onclick="goTo('exp')">Experiência</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="section" id="hero">
+  <div class="inner">
+    <div class="reveal">
+      <p class="hero-kicker">Portfolio · Thayná Freire</p>
+      <h1 class="hero-name">Produto.<br>Dados.<br>Pessoas.</h1>
+      <div class="hero-roles">
+        <span class="role-tag hi">Product Manager</span>
+        <span class="role-tag hi">Product Owner</span>
+        <span class="role-tag">UX Research</span>
+        <span class="role-tag">Data Analytics</span>
+      </div>
+      <p class="hero-desc">
+        Profissional na interseção entre dados, comportamento do usuário e estratégia de produto. 
+        Não me interessa só acompanhar métrica — quero entender o que ela está dizendo, 
+        onde está a fricção real e como o produto pode evoluir a partir disso.
+      </p>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <div class="stat-n">−40%</div>
+          <div class="stat-l">Entradas no Bacen</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-n">16+</div>
+          <div class="stat-l">Meses no Itaú</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-n">3+</div>
+          <div class="stat-l">Anos em produto</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE -->
+<section class="section" id="sobre">
+  <div class="inner">
+    <div class="reveal">
+      <div class="section-label">Sobre</div>
+      <div class="section-divider"></div>
+    </div>
+    <div class="sobre-grid reveal">
+      <div class="sobre-card">
+        <p class="sc-title">Como trabalho</p>
+        <p class="sc-text">
+          Minha jornada passou por UX Research, análise de dados e Product Analytics. 
+          Foi nessa interseção que encontrei onde gero mais valor: entender o comportamento 
+          do usuário em profundidade e traduzir isso em decisões estratégicas de produto.<br><br>
+          Utilizo SQL, Python e IA para explorar dados — mas sempre com o objetivo de 
+          transformar números em histórias que ajudem times de produto e negócio a tomar 
+          decisões mais conscientes.<br><br>
+          Trabalho bem no espaço entre o técnico e o estratégico: consigo ler dados, 
+          construir análises e sentar na mesa de discovery para questionar o porquê de uma 
+          aposta, colaborando de forma próxima com times de produto, engenharia, design e negócio.
+        </p>
+      </div>
+      <div class="sobre-card">
+        <p class="sc-title" style="margin-bottom:14px;">Competências</p>
+        <div class="pill-grid">
+          <span class="pill hi">Gestão de Backlog</span>
+          <span class="pill hi">Discovery</span>
+          <span class="pill hi">UX Research</span>
+          <span class="pill hi">Análise de Dados</span>
+          <span class="pill hi">Definição de KPIs</span>
+          <span class="pill">SQL</span>
+          <span class="pill">Python</span>
+          <span class="pill">Power BI</span>
+          <span class="pill">AWS</span>
+          <span class="pill">Scrum · Kanban</span>
+          <span class="pill">Histórias de Usuário</span>
+          <span class="pill">Stakeholder Management</span>
+          <span class="pill">IA Generativa</span>
+          <span class="pill">Prototipação</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CASE -->
+<section class="section" id="case">
+  <div class="inner">
+    <div class="reveal">
+      <div class="section-label">Case Principal</div>
+      <div class="section-divider"></div>
+    </div>
+
+    <div class="reveal">
+      <div class="case-hero">
+        <div>
+          <p class="case-kicker-sm">Itaú Unibanco · Pagamento de Boletos · 2024–2025</p>
+          <p class="case-title">Como identifiquei a causa raiz de reclamações regulatórias<br>e ajudei a reduzir entradas no Bacen em 40%</p>
+        </div>
+        <div class="result-bubble">
+          <div class="rb-n">−40%</div>
+          <div class="rb-l">Entradas no Bacen</div>
+        </div>
+      </div>
+
+      <div class="bento">
+
+        <div class="bc bc-wide">
+          <div class="bc-lbl">Contexto & Priorização</div>
+          <div class="bc-div"></div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;">
+            <div>
+              <h3>Por que foi priorizado</h3>
+              <ul class="blist">
+                <li>OKR do banco: <strong>reduzir entradas no Bacen</strong></li>
+                <li>Produto de alto volume — mesmo <strong>&lt;2% de reclamações</strong> representa impacto regulatório real</li>
+                <li>Itaú liderava ranking de sentimentos negativos: <strong>15,05%</strong></li>
+              </ul>
+            </div>
+            <div>
+              <h3>Sentimentos negativos — mercado</h3>
+              <div class="barchart">
+                <div class="bar-row"><span class="bar-name">Itaú</span><div class="bar-track"><div class="bar-fill red" style="width:100%"></div></div><span class="bar-val">15%</span></div>
+                <div class="bar-row"><span class="bar-name">Banco do Brasil</span><div class="bar-track"><div class="bar-fill red" style="width:91%"></div></div><span class="bar-val">13,7%</span></div>
+                <div class="bar-row"><span class="bar-name">Caixa</span><div class="bar-track"><div class="bar-fill red" style="width:82%"></div></div><span class="bar-val">12,3%</span></div>
+                <div class="bar-row"><span class="bar-name">Santander</span><div class="bar-track"><div class="bar-fill blue" style="width:64%"></div></div><span class="bar-val">9,6%</span></div>
+                <div class="bar-row"><span class="bar-name">Nubank</span><div class="bar-track"><div class="bar-fill blue" style="width:46%"></div></div><span class="bar-val">6,9%</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bc bc-tall">
+          <div class="bc-lbl">Insight Central</div>
+          <div class="bc-div"></div>
+          <h3>O cliente queria rastreabilidade, não comprovante</h3>
+          <p style="margin-top:10px;">
+            Jornada real descoberta:<br>
+            cliente ia à agência → gerente ligava para a central → central não conseguia 
+            fornecer o status do repasse.<br><br>
+            <strong>Falha sistêmica de visibilidade</strong>, não de pagamento.
+          </p>
+          <div class="verbatim">
+            <div class="vb-tag">Reclamação original</div>
+            <div class="vb-text">"Realizei um pagamento de boleto, o receptor não reconheceu o pagamento."</div>
+          </div>
+        </div>
+
+        <div class="bc bc-bl">
+          <div class="bc-lbl">Como cheguei lá</div>
+          <div class="bc-div"></div>
+          <div class="slist">
+            <div class="sitem"><span class="snum">1</span><p><strong>6 meses de reclamações</strong> analisados e cruzados com base de pagamentos via SQL</p></div>
+            <div class="sitem"><span class="snum">2</span><p>Usei <strong>Copilot para clusterizar</strong> os temas — principal ofensor: busca por comprovante de repasse</p></div>
+            <div class="sitem"><span class="snum">3</span><p><strong>Análise competitiva</strong> com 2.066 comentários — 96,5% positivos no mercado</p></div>
+            <div class="sitem"><span class="snum">4</span><p>Imersão na <strong>jornada completa</strong>: cliente → agência → central de atendimento</p></div>
+          </div>
+        </div>
+
+        <div class="bc bc-bm">
+          <div class="bc-lbl">Solução em 2 Frentes</div>
+          <div class="bc-div"></div>
+          <div class="sol-pair">
+            <div class="sol-item">
+              <div class="si-tag">Curto prazo</div>
+              <div class="si-title">Script da Central</div>
+              <div class="si-desc">Atualização do roteiro da central garantindo que o repasse é efetivado junto ao pagamento</div>
+            </div>
+            <div class="sol-item">
+              <div class="si-tag">Médio prazo</div>
+              <div class="si-title">Boleto 360°</div>
+              <div class="si-desc">Interface de status em tempo real para gerentes e central de atendimento</div>
+            </div>
+          </div>
+          <ul class="blist" style="margin-top:14px;">
+            <li>Participei do <strong>refinamento e especificação</strong> do Boleto 360°</li>
+            <li>Acompanhei métricas até a <strong>validação do resultado final</strong></li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIÊNCIA -->
+<section class="section" id="exp">
+  <div class="inner">
+    <div class="reveal">
+      <div class="section-label">Experiência</div>
+      <div class="section-divider"></div>
+    </div>
+    <div class="exp-list">
+
+      <div class="exp-card reveal">
+        <div>
+          <p class="exp-role">Product Analyst</p>
+          <p class="exp-co">Itaú Unibanco · Time de Pagamentos (Boletos)</p>
+          <ul class="blist">
+            <li>Apoiei a gestão e priorização de backlog com critérios baseados em dados e impacto no negócio</li>
+            <li>Conduzi análise de causa raiz em reclamações regulatórias via SQL e IA, resultando em <strong>redução de 40% nas entradas no Bacen</strong></li>
+            <li>Estruturei e acompanhei KPIs de produto, traduzindo dados em insights para decisões de roadmap</li>
+            <li>Participei de discovery, refinamento e rituais ágeis completos com squads multidisciplinares</li>
+            <li>Elaborei relatórios e apresentações para stakeholders de negócio e liderança</li>
+          </ul>
+        </div>
+        <p class="exp-period">Out 2024 – Fev 2026</p>
+      </div>
+
+      <div class="exp-card reveal">
+        <div>
+          <p class="exp-role">UX Researcher</p>
+          <p class="exp-co">Portal da Vela</p>
+          <ul class="blist">
+            <li>Mapeei comportamento de usuários e identifiquei oportunidades com base em dados qualitativos e quantitativos</li>
+            <li>Construí indicadores de acompanhamento e apoiei priorização de melhorias com base em insights</li>
+            <li>Colaborei com time multidisciplinar em ambiente ágil para desenvolvimento de produto digital</li>
+          </ul>
+        </div>
+        <p class="exp-period">Jun – Set 2023</p>
+      </div>
+
+      <div class="exp-card reveal">
+        <div>
+          <p class="exp-role">UX Researcher</p>
+          <p class="exp-co">Flash Tattoo</p>
+          <ul class="blist">
+            <li>Conduzi entrevistas em profundidade com usuários e levantamento de necessidades e dores</li>
+            <li>Validei hipóteses de produto e apoiei a definição de oportunidades de negócio</li>
+          </ul>
+        </div>
+        <p class="exp-period">Ago – Out 2021</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FORMAÇÃO & CERTS -->
+<section class="section" id="form" style="background:var(--bg);">
+  <div class="inner">
+    <div class="reveal">
+      <div class="section-label">Formação & Certificações</div>
+      <div class="section-divider"></div>
+    </div>
+    <div class="two-col-grid reveal">
+      <div>
+        <div class="fc-entry">
+          <p class="fc-title">Ciência de Dados</p>
+          <p class="fc-sub">Cruzeiro do Sul Virtual · 2026–2028</p>
+        </div>
+        <div class="fc-entry">
+          <p class="fc-title">Gestão da Tecnologia da Informação</p>
+          <p class="fc-sub">Estácio · 2024–2026</p>
+        </div>
+        <div class="fc-entry">
+          <p class="fc-title">UX Design</p>
+          <p class="fc-sub">Tera · 2021</p>
+        </div>
+      </div>
+      <div class="cert-grid">
+        <div class="cert-item">
+          <div><p class="cert-name">Mecanismo Jeito Itaú de Produtar</p><p class="cert-org">Itaú Unibanco</p></div>
+          <span class="cert-year">2025</span>
+        </div>
+        <div class="cert-item">
+          <div><p class="cert-name">Practitioner D&A Foundation</p><p class="cert-org">Itaú Unibanco</p></div>
+          <span class="cert-year">2025</span>
+        </div>
+        <div class="cert-item">
+          <div><p class="cert-name">SQL para Análise de Dados</p><p class="cert-org">Udemy</p></div>
+          <span class="cert-year">2025</span>
+        </div>
+        <div class="cert-item">
+          <div><p class="cert-name">Formação Completa em Scrum</p><p class="cert-org">Unieducar</p></div>
+          <span class="cert-year">2024</span>
+        </div>
+        <div class="cert-item">
+          <div><p class="cert-name">Fundamentos de IA Moderna: LLMs</p><p class="cert-org">DIO</p></div>
+          <span class="cert-year">2026</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p class="footer-name">Thayná Freire</p>
+  <div class="footer-links">
+    <a href="mailto:thaynapfreire@gmail.com">thaynapfreire@gmail.com</a>
+    <a href="https://linkedin.com/in/thaynapfreire" target="_blank">LinkedIn</a>
+    <a href="tel:+5561996710477">(61) 99671-0477</a>
+  </div>
+</footer>
+
+<script>
+function goTo(id) {
+  document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+}
+
+// Nav active state on scroll
+const sections = document.querySelectorAll('section[id]');
+const navBtns = document.querySelectorAll('.nav-btn');
+const sectionIds = ['hero','sobre','case','exp'];
+
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(s => {
+    if (window.scrollY >= s.offsetTop - 100) current = s.id;
+  });
+  navBtns.forEach((btn, i) => {
+    btn.classList.toggle('active', sectionIds[i] === current);
+  });
+});
+
+// Reveal on scroll
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.12 });
+reveals.forEach(r => observer.observe(r));
+</script>
+</body>
+</html>
