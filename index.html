@@ -9,593 +9,578 @@
 * { margin:0; padding:0; box-sizing:border-box; }
 html { scroll-behavior:smooth; }
 body { font-family:'Sora',sans-serif; background:#f4f6f9; color:#0f1e3d; -webkit-font-smoothing:antialiased; }
-
 :root {
-  --navy:    #0f1e3d;
-  --blue:    #1a6cf6;
-  --blue-lt: #e8f0fe;
-  --blue-bd: #c7d9fd;
-  --white:   #ffffff;
-  --bg:      #f4f6f9;
-  --line:    #e2e8f0;
-  --ink2:    #334155;
-  --ink3:    #64748b;
-  --ink4:    #94a3b8;
-  --green:   #059669;
-  --green-lt:#ecfdf5;
-  --green-bd:#a7f3d0;
-  --red:     #dc2626;
-  --r:       20px;
+--navy: #0f1e3d;
+--blue: #1a6cf6;
+--blue-lt: #e8f0fe;
+--blue-bd: #c7d9fd;
+--white: #ffffff;
+--bg: #f4f6f9;
+--line: #e2e8f0;
+--ink2: #334155;
+--ink3: #64748b;
+--ink4: #94a3b8;
+--green: #059669;
+--green-lt:#ecfdf5;
+--green-bd:#a7f3d0;
+--red: #dc2626;
+--r: 20px;
 }
-
 /* NAV */
 nav {
-  position:fixed; top:0; left:0; right:0; z-index:200;
-  height:52px; display:flex; align-items:center; justify-content:space-between;
-  padding:0 40px;
-  background:rgba(255,255,255,0.96); backdrop-filter:blur(12px);
-  border-bottom:1px solid var(--line);
+position:fixed; top:0; left:0; right:0; z-index:200;
+height:52px; display:flex; align-items:center; justify-content:space-between;
+padding:0 40px;
+background:rgba(255,255,255,0.96); backdrop-filter:blur(12px);
+border-bottom:1px solid var(--line);
 }
 .nav-name { font-size:12px; font-weight:600; color:var(--navy); }
 .nav-links { display:flex; gap:6px; }
 .nav-btn {
-  height:30px; padding:0 14px; border-radius:100px;
-  border:1.5px solid var(--line); background:transparent;
-  cursor:pointer; font-size:11px; font-weight:600;
-  color:var(--ink4); font-family:'Sora',sans-serif;
-  transition:all .2s;
+height:30px; padding:0 14px; border-radius:100px;
+border:1.5px solid var(--line); background:transparent;
+cursor:pointer; font-size:11px; font-weight:600;
+color:var(--ink4); font-family:'Sora',sans-serif;
+transition:all .2s;
 }
 .nav-btn:hover { border-color:var(--blue); color:var(--blue); }
 .nav-btn.active { background:var(--navy); border-color:var(--navy); color:#fff; }
-
 /* SECTIONS */
 .section { padding:80px 40px 60px; }
 .inner { max-width:980px; margin:0 auto; }
-
 @keyframes up { from{opacity:0;transform:translateY(18px)} to{opacity:1;transform:translateY(0)} }
 .reveal { opacity:0; transform:translateY(18px); transition:opacity .55s cubic-bezier(.22,1,.36,1), transform .55s cubic-bezier(.22,1,.36,1); }
 .reveal.visible { opacity:1; transform:none; }
-
 /* ══ HERO ══ */
 #hero { background:var(--navy); padding-top:100px; padding-bottom:64px; }
 .hero-kicker {
-  font-size:10px; font-weight:700; letter-spacing:.2em; text-transform:uppercase;
-  color:rgba(255,255,255,.4); margin-bottom:18px;
+font-size:10px; font-weight:700; letter-spacing:.2em; text-transform:uppercase;
+color:rgba(255,255,255,.4); margin-bottom:18px;
 }
 .hero-name {
-  font-size:clamp(42px,6vw,72px); font-weight:700; color:#fff;
-  letter-spacing:-.03em; line-height:1; margin-bottom:16px;
+font-size:clamp(42px,6vw,72px); font-weight:700; color:#fff;
+letter-spacing:-.03em; line-height:1; margin-bottom:16px;
 }
 .hero-roles { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:32px; }
 .role-tag {
-  font-size:11px; font-weight:600; letter-spacing:.04em;
-  background:rgba(255,255,255,.08); color:rgba(255,255,255,.7);
-  border:1px solid rgba(255,255,255,.12); border-radius:100px;
-  padding:6px 14px;
+font-size:11px; font-weight:600; letter-spacing:.04em;
+background:rgba(255,255,255,.08); color:rgba(255,255,255,.7);
+border:1px solid rgba(255,255,255,.12); border-radius:100px;
+padding:6px 14px;
 }
 .role-tag.hi { background:var(--blue); color:#fff; border-color:var(--blue); }
 .hero-desc {
-  font-size:14px; font-weight:300; color:rgba(255,255,255,.6);
-  line-height:1.8; max-width:560px; margin-bottom:36px;
+font-size:14px; font-weight:300; color:rgba(255,255,255,.6);
+line-height:1.8; max-width:560px; margin-bottom:36px;
+text-align:justify;
 }
 .hero-stats { display:flex; gap:32px; flex-wrap:wrap; }
 .stat-item { }
 .stat-n { font-size:32px; font-weight:700; color:#fff; letter-spacing:-.03em; line-height:1; }
 .stat-l { font-size:10px; font-weight:500; color:rgba(255,255,255,.4); letter-spacing:.06em; text-transform:uppercase; margin-top:4px; }
-
 /* ══ SOBRE ══ */
 #sobre { background:var(--bg); }
 .section-label {
-  font-size:10px; font-weight:700; letter-spacing:.2em; text-transform:uppercase;
-  color:var(--blue); margin-bottom:6px;
+font-size:10px; font-weight:700; letter-spacing:.2em; text-transform:uppercase;
+color:var(--blue); margin-bottom:6px;
 }
 .section-divider { width:28px; height:2px; background:var(--blue); border-radius:2px; margin-bottom:28px; }
 .sobre-grid { display:grid; grid-template-columns:1fr 1fr; gap:3px; }
 .sobre-card { background:var(--white); border:1px solid var(--line); padding:28px 32px; }
 .sobre-card:first-child { border-radius:var(--r) 0 0 var(--r); }
-.sobre-card:last-child  { border-radius:0 var(--r) var(--r) 0; }
+.sobre-card:last-child { border-radius:0 var(--r) var(--r) 0; }
 .sc-title { font-size:15px; font-weight:600; color:var(--navy); margin-bottom:14px; }
-.sc-text  { font-size:13px; font-weight:300; color:var(--ink2); line-height:1.85; }
+.sc-text { font-size:13px; font-weight:300; color:var(--ink2); line-height:1.85; }
 .pill-grid { display:flex; flex-wrap:wrap; gap:6px; }
 .pill {
-  font-size:11px; font-weight:500; color:var(--ink2);
-  background:var(--bg); border:1px solid var(--line);
-  border-radius:100px; padding:5px 12px;
+font-size:11px; font-weight:500; color:var(--ink2);
+background:var(--bg); border:1px solid var(--line);
+border-radius:100px; padding:5px 12px;
 }
 .pill.hi { background:var(--blue-lt); color:var(--blue); border-color:var(--blue-bd); }
 .pill.gr { background:var(--green-lt); color:var(--green); border-color:var(--green-bd); }
-
 /* ══ EXPERIÊNCIA ══ */
 #exp { background:var(--white); border-top:1px solid var(--line); }
 .exp-list { display:flex; flex-direction:column; gap:3px; }
 .exp-card {
-  background:var(--bg); border:1px solid var(--line);
-  border-radius:var(--r); padding:28px 32px;
-  display:grid; grid-template-columns:1fr auto; gap:16px;
+background:var(--bg); border:1px solid var(--line);
+border-radius:var(--r); padding:28px 32px;
+display:grid; grid-template-columns:1fr auto; gap:16px;
 }
-.exp-role  { font-size:15px; font-weight:600; color:var(--navy); margin-bottom:4px; }
-.exp-co    { font-size:12px; font-weight:500; color:var(--blue); margin-bottom:12px; }
+.exp-role { font-size:15px; font-weight:600; color:var(--navy); margin-bottom:4px; }
+.exp-co { font-size:12px; font-weight:500; color:var(--blue); margin-bottom:12px; }
 .exp-period{ font-size:11px; color:var(--ink4); font-weight:400; align-self:start; white-space:nowrap; }
 .blist { list-style:none; display:flex; flex-direction:column; gap:7px; }
 .blist li {
-  font-size:12px; font-weight:300; color:var(--ink2);
-  padding-left:14px; position:relative; line-height:1.65;
+font-size:12px; font-weight:300; color:var(--ink2);
+padding-left:14px; position:relative; line-height:1.65;
 }
 .blist li::before {
-  content:''; position:absolute; left:0; top:7px;
-  width:4px; height:4px; border-radius:50%; background:var(--blue);
+content:''; position:absolute; left:0; top:7px;
+width:4px; height:4px; border-radius:50%; background:var(--blue);
 }
 .blist li strong { font-weight:600; color:var(--navy); }
-
 /* ══ CASE ══ */
 #case { background:var(--bg); }
 .case-hero {
-  background:var(--navy); border-radius:var(--r);
-  padding:28px 40px; margin-bottom:3px;
-  display:grid; grid-template-columns:1fr auto; align-items:center; gap:24px;
+background:var(--navy); border-radius:var(--r);
+padding:28px 40px; margin-bottom:3px;
+display:grid; grid-template-columns:1fr auto; align-items:center; gap:24px;
 }
 .case-kicker-sm {
-  font-size:9px; font-weight:700; letter-spacing:.2em; text-transform:uppercase;
-  color:rgba(255,255,255,.4); margin-bottom:8px;
+font-size:9px; font-weight:700; letter-spacing:.2em; text-transform:uppercase;
+color:rgba(255,255,255,.4); margin-bottom:8px;
 }
 .case-title {
-  font-size:clamp(16px,2vw,22px); font-weight:700; color:#fff;
-  letter-spacing:-.01em; line-height:1.25;
+font-size:clamp(16px,2vw,22px); font-weight:700; color:#fff;
+letter-spacing:-.01em; line-height:1.25;
 }
 .result-bubble {
-  background:#fff; border-radius:16px; padding:16px 28px; text-align:center; flex-shrink:0;
+background:#fff; border-radius:16px; padding:16px 28px; text-align:center; flex-shrink:0;
 }
 .rb-n { font-size:40px; font-weight:700; color:var(--navy); line-height:1; letter-spacing:-.03em; }
 .rb-l { font-size:9px; font-weight:700; color:var(--ink3); letter-spacing:.1em; text-transform:uppercase; margin-top:4px; }
-
 .bento {
-  display:grid;
-  grid-template-columns:1fr 1fr 1fr;
-  grid-template-rows:auto auto;
-  gap:3px;
+display:grid;
+grid-template-columns:1fr 1fr 1fr;
+grid-template-rows:auto auto;
+gap:3px;
 }
 .bc { background:var(--white); border:1px solid var(--line); padding:24px 26px; }
-.bc-wide  { grid-column:1/3; border-radius:0; }
-.bc-tall  { grid-column:3; grid-row:1/3; border-radius:0 0 var(--r) 0; }
-.bc-bl    { border-radius:0 0 0 var(--r); }
-.bc-bm    { border-radius:0; }
+.bc-wide { grid-column:1/3; border-radius:0; }
+.bc-tall { grid-column:3; grid-row:1/3; border-radius:0 0 var(--r) 0; }
+.bc-bl { border-radius:0 0 0 var(--r); }
+.bc-bm { border-radius:0; }
 .bc-lbl {
-  font-size:10px; font-weight:700; letter-spacing:.18em; text-transform:uppercase;
-  color:var(--blue); margin-bottom:5px;
+font-size:10px; font-weight:700; letter-spacing:.18em; text-transform:uppercase;
+color:var(--blue); margin-bottom:5px;
 }
 .bc-div { width:22px; height:2px; background:var(--blue); border-radius:2px; margin-bottom:16px; }
 .bc h3 { font-size:13px; font-weight:600; color:var(--navy); margin-bottom:8px; line-height:1.35; }
-.bc p  { font-size:12px; font-weight:300; color:var(--ink3); line-height:1.75; }
+.bc p { font-size:12px; font-weight:300; color:var(--ink3); line-height:1.75; }
 .bc p strong { font-weight:600; color:var(--ink2); }
-
 .barchart { display:flex; flex-direction:column; gap:7px; margin-top:4px; }
 .bar-row { display:grid; grid-template-columns:70px 1fr 38px; align-items:center; gap:6px; }
 .bar-name { font-size:11px; color:var(--ink4); text-align:right; }
 .bar-track { background:var(--bg); border-radius:100px; height:6px; overflow:hidden; border:1px solid var(--line); }
-.bar-fill  { height:6px; border-radius:100px; }
-.bar-fill.red  { background:var(--red); }
+.bar-fill { height:6px; border-radius:100px; }
+.bar-fill.red { background:var(--red); }
 .bar-fill.blue { background:var(--blue); }
 .bar-val { font-size:10px; font-weight:600; color:var(--ink3); }
-
 .slist { display:flex; flex-direction:column; gap:10px; }
 .sitem { display:flex; gap:10px; align-items:flex-start; }
 .snum {
-  width:20px; height:20px; border-radius:50%; flex-shrink:0;
-  background:var(--blue-lt); color:var(--blue);
-  font-size:9px; font-weight:700;
-  display:flex; align-items:center; justify-content:center; margin-top:1px;
+width:20px; height:20px; border-radius:50%; flex-shrink:0;
+background:var(--blue-lt); color:var(--blue);
+font-size:9px; font-weight:700;
+display:flex; align-items:center; justify-content:center; margin-top:1px;
 }
 .sitem p { font-size:12px; font-weight:300; color:var(--ink2); line-height:1.65; }
 .sitem p strong { font-weight:600; color:var(--navy); }
-
 .tag-row { display:flex; gap:6px; margin-bottom:14px; flex-wrap:wrap; }
 .tag-mini {
-  font-size:10px; font-weight:600; letter-spacing:.02em;
-  background:var(--bg); color:var(--ink3);
-  border:1px solid var(--line); border-radius:100px;
-  padding:4px 10px;
+font-size:10px; font-weight:600; letter-spacing:.02em;
+background:var(--bg); color:var(--ink3);
+border:1px solid var(--line); border-radius:100px;
+padding:4px 10px;
 }
 .tag-mini.q1 { background:var(--blue-lt); color:var(--blue); border-color:var(--blue-bd); }
 .tag-mini.q2 { background:var(--green-lt); color:var(--green); border-color:var(--green-bd); }
-
 .sol-pair { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:4px; }
 .sol-item { background:var(--bg); border-radius:10px; padding:12px 14px; border:1px solid var(--line); }
-.si-tag   { font-size:9px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--ink4); margin-bottom:5px; }
+.si-tag { font-size:9px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--ink4); margin-bottom:5px; }
 .si-title { font-size:12px; font-weight:600; color:var(--navy); margin-bottom:4px; }
-.si-desc  { font-size:11px; font-weight:300; color:var(--ink3); line-height:1.55; }
-
+.si-desc { font-size:11px; font-weight:300; color:var(--ink3); line-height:1.55; }
 .verbatim { background:var(--bg); border:1.5px solid var(--line); border-radius:10px; padding:14px; margin-top:14px; }
-.vb-tag  { font-size:9px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--blue); margin-bottom:6px; }
+.vb-tag { font-size:9px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--blue); margin-bottom:6px; }
 .vb-text { font-size:13px; font-weight:300; font-style:italic; color:var(--navy); line-height:1.65; }
-
 /* ══ FORMAÇÃO & CERTS ══ */
 #form { background:var(--white); border-top:1px solid var(--line); }
 .two-col-grid { display:grid; grid-template-columns:1fr 1fr; gap:32px; }
 .fc-title { font-size:13px; font-weight:600; color:var(--navy); margin-bottom:3px; }
-.fc-sub   { font-size:11px; color:var(--ink4); font-weight:300; }
+.fc-sub { font-size:11px; color:var(--ink4); font-weight:300; }
 .fc-entry { margin-bottom:16px; }
 .fc-entry:last-child { margin-bottom:0; }
 .cert-grid { display:flex; flex-direction:column; gap:10px; }
 .cert-item {
-  background:var(--bg); border:1px solid var(--line);
-  border-radius:10px; padding:12px 16px;
-  display:flex; justify-content:space-between; align-items:center;
+background:var(--bg); border:1px solid var(--line);
+border-radius:10px; padding:12px 16px;
+display:flex; justify-content:space-between; align-items:center;
 }
 .cert-name { font-size:12px; font-weight:600; color:var(--navy); margin-bottom:2px; }
-.cert-org  { font-size:11px; color:var(--ink4); font-weight:300; }
+.cert-org { font-size:11px; color:var(--ink4); font-weight:300; }
 .cert-year { font-size:11px; font-weight:600; color:var(--blue); }
-
 /* ══ FOOTER ══ */
 footer {
-  background:var(--navy); padding:40px;
-  text-align:center;
+background:var(--navy); padding:40px;
+text-align:center;
 }
 .footer-name { font-size:18px; font-weight:700; color:#fff; margin-bottom:8px; }
 .footer-links { display:flex; justify-content:center; gap:24px; flex-wrap:wrap; }
 .footer-links a {
-  font-size:12px; color:rgba(255,255,255,.5);
-  text-decoration:none; font-weight:400;
-  transition:color .2s;
+font-size:12px; color:rgba(255,255,255,.5);
+text-decoration:none; font-weight:400;
+transition:color .2s;
 }
 .footer-links a:hover { color:#fff; }
-
 /* RESPONSIVE */
 @media(max-width:700px){
-  nav { padding:0 20px; }
-  .section { padding:72px 20px 48px; }
-  .sobre-grid { grid-template-columns:1fr; }
-  .sobre-card:first-child { border-radius:var(--r) var(--r) 0 0; }
-  .sobre-card:last-child  { border-radius:0 0 var(--r) var(--r); }
-  .bento { grid-template-columns:1fr; }
-  .bc-wide,.bc-tall,.bc-bl,.bc-bm { grid-column:1; grid-row:auto; border-radius:0; }
-  .bento .bc:last-child { border-radius:0 0 var(--r) var(--r); }
-  .case-hero { grid-template-columns:1fr; }
-  .result-bubble { width:fit-content; }
-  .two-col-grid { grid-template-columns:1fr; }
-  .exp-card { grid-template-columns:1fr; }
-  .sol-pair { grid-template-columns:1fr; }
-  footer { padding:40px 20px; }
+nav { padding:0 20px; }
+.section { padding:72px 20px 48px; }
+.sobre-grid { grid-template-columns:1fr; }
+.sobre-card:first-child { border-radius:var(--r) var(--r) 0 0; }
+.sobre-card:last-child { border-radius:0 0 var(--r) var(--r); }
+.bento { grid-template-columns:1fr; }
+.bc-wide,.bc-tall,.bc-bl,.bc-bm { grid-column:1; grid-row:auto; border-radius:0; }
+.bento .bc:last-child { border-radius:0 0 var(--r) var(--r); }
+.case-hero { grid-template-columns:1fr; }
+.result-bubble { width:fit-content; }
+.two-col-grid { grid-template-columns:1fr; }
+.exp-card { grid-template-columns:1fr; }
+.sol-pair { grid-template-columns:1fr; }
+footer { padding:40px 20px; }
 }
 </style>
 </head>
 <body>
-
 <nav>
-  <span class="nav-name">Thayná Freire</span>
-  <div class="nav-links">
-    <button class="nav-btn active" onclick="goTo('hero')">Início</button>
-    <button class="nav-btn" onclick="goTo('sobre')">Sobre</button>
-    <button class="nav-btn" onclick="goTo('case')">Case</button>
-    <button class="nav-btn" onclick="goTo('exp')">Experiência</button>
-  </div>
+<span class="nav-name">Thayná Freire</span>
+<div class="nav-links">
+<button class="nav-btn active" onclick="goTo('hero')">Início</button>
+<button class="nav-btn" onclick="goTo('sobre')">Sobre</button>
+<button class="nav-btn" onclick="goTo('case')">Case</button>
+<button class="nav-btn" onclick="goTo('exp')">Experiência</button>
+</div>
 </nav>
 
 <!-- HERO -->
 <section class="section" id="hero">
-  <div class="inner">
-    <div class="reveal">
-      <p class="hero-kicker">Portfolio · Thayná Freire</p>
-      <h1 class="hero-name">Dados.<br>Negócio.<br>Decisão.</h1>
-      <div class="hero-roles">
-        <span class="role-tag hi">Business Intelligence</span>
-        <span class="role-tag hi">Data Analytics</span>
-        <span class="role-tag">SQL · Power BI</span>
-        <span class="role-tag">Dashboards</span>
-      </div>
-      <p class="hero-desc">
-        Analista de dados com foco em Business Intelligence, atuando na estruturação de dashboards, 
-        indicadores e análises que apoiam a tomada de decisão do negócio. Trabalho na interface 
-        entre negócio e dados: traduzo perguntas de áreas como Produto, Operações e Negócio em 
-        análises objetivas e insights acionáveis.
-      </p>
-      <div class="hero-stats">
-        <div class="stat-item">
-          <div class="stat-n">−40%</div>
-          <div class="stat-l">Entradas no Bacen</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-n">16+</div>
-          <div class="stat-l">Meses no Itaú</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-n">3+</div>
-          <div class="stat-l">Anos entre Dados e Negócio</div>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="inner">
+<div class="reveal">
+<p class="hero-kicker">Portfolio · Thayná Freire</p>
+<h1 class="hero-name">Dados Negócio Decisão</h1>
+<div class="hero-roles">
+<span class="role-tag hi">Business Intelligence</span>
+<span class="role-tag hi">Data Analytics</span>
+<span class="role-tag">SQL · Power BI</span>
+<span class="role-tag">Dashboards</span>
+</div>
+<p class="hero-desc">
+Analista de dados com foco em Business Intelligence. Estruturo dashboards, indicadores e análises que sustentam decisão, tentando entender o problema antes de sair rodando query.<br>
+Trabalho na interface entre negócio e dados: traduzo perguntas de Produto, Operações e Negócio em respostas que alguém de fato usa.
+</p>
+<div class="hero-stats">
+<div class="stat-item">
+<div class="stat-n">↓ 40%</div>
+<div class="stat-l">Reclamações regulatórias</div>
+</div>
+<div class="stat-item">
+<div class="stat-n">16+</div>
+<div class="stat-l">Meses em BI de Pagamentos</div>
+</div>
+<div class="stat-item">
+<div class="stat-n">3+</div>
+<div class="stat-l">Anos entre Dados e Negócio</div>
+</div>
+</div>
+</div>
+</div>
 </section>
 
 <!-- SOBRE -->
 <section class="section" id="sobre">
-  <div class="inner">
-    <div class="reveal">
-      <div class="section-label">Sobre</div>
-      <div class="section-divider"></div>
-    </div>
-    <div class="sobre-grid reveal">
-      <div class="sobre-card">
-        <p class="sc-title">Como trabalho</p>
-        <p class="sc-text">
-          Minha trajetória passa por UX Research e Product Analytics, e foi nessa interseção 
-          que descobri onde gero mais valor: entender o comportamento do cliente em profundidade 
-          e transformar isso em decisões estratégicas de produto.<br><br>
-          Gosto de ir além do número — não me basta acompanhar uma métrica, quero entender o que 
-          ela está dizendo, onde está a fricção real e como o produto pode evoluir a partir disso. 
-          Uso SQL, Python e Power BI no dia a dia para explorar dados, sempre com o objetivo de 
-          transformar isso em insights que ajudem times de produto e negócio a decidir melhor.<br><br>
-          Transito bem entre o técnico e o estratégico: consigo ler dados, construir uma análise, 
-          mas também sentar numa mesa de discovery e questionar o porquê de uma aposta, colaborando 
-          de perto com produto, engenharia, design e negócio.<br><br>
-          Acredito que o melhor produto não é o mais bonito nem o mais técnico — é o que resolve o 
-          problema certo, para as pessoas certas, com evidências baseadas em dados.
-        </p>
-      </div>
-      <div class="sobre-card">
-        <p class="sc-title" style="margin-bottom:14px;">Principais competências</p>
-        <div class="pill-grid">
-          <span class="pill hi">SQL</span>
-          <span class="pill hi">Python (pandas)</span>
-          <span class="pill hi">Power BI</span>
-          <span class="pill hi">AWS</span>
-          <span class="pill hi">Engenharia de Prompt · IA Generativa</span>
-          <span class="pill">Estruturação de Hipóteses</span>
-          <span class="pill">Governança de Dados</span>
-          <span class="pill">Storytelling com Dados</span>
-          <span class="pill">Stakeholder Management</span>
-          <span class="pill">Excel</span>
-          <span class="pill">KPIs de Negócio</span>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="inner">
+<div class="reveal">
+<div class="section-label">Sobre</div>
+<div class="section-divider"></div>
+</div>
+<div class="sobre-grid reveal">
+<div class="sobre-card">
+<p class="sc-title">Como trabalho</p>
+<p class="sc-text">
+Minha trajetória passa por UX Research e Product Analytics. Foi nessa interseção que
+descobri onde gero mais valor: entender o comportamento do cliente a fundo e transformar
+isso em decisão de produto.<br><br>
+Gosto de ir além do número — não me basta acompanhar uma métrica, quero entender o que
+ela está dizendo, onde está a fricção real e como o produto pode evoluir a partir disso.
+Uso SQL, Python e Power BI no dia a dia para explorar dados e transformar isso em algo
+que ajude times de produto e negócio a decidir melhor.<br><br>
+Transito bem entre o técnico e o estratégico: leio dados, construo uma análise, mas
+também sento numa mesa de discovery pra questionar o porquê de uma aposta. No dia a dia
+isso significa trabalhar de perto com produto, engenharia, design e negócio.<br><br>
+Não acho que o melhor produto seja o mais bonito ou o mais técnico. Pra mim é o que
+resolve o problema certo pra quem realmente precisa — e isso eu só sei dizer olhando
+pros dados.<br><br>
+Também sei criar e aplicar skills de IA de forma estratégica — não uso IA como solução
+genérica, escolho a ferramenta certa pra cada etapa do problema.
+</p>
+</div>
+<div class="sobre-card">
+<p class="sc-title" style="margin-bottom:14px;">Principais competências</p>
+<div class="pill-grid">
+<span class="pill hi">SQL</span>
+<span class="pill hi">Python (pandas)</span>
+<span class="pill hi">Power BI</span>
+<span class="pill hi">AWS</span>
+<span class="pill hi">Engenharia de Prompt · IA Generativa</span>
+<span class="pill hi">Criação e Uso Estratégico de Skills de IA</span>
+<span class="pill">Estruturação de Hipóteses</span>
+<span class="pill">Governança de Dados</span>
+<span class="pill">Storytelling com Dados</span>
+<span class="pill">Stakeholder Management</span>
+<span class="pill">Excel</span>
+<span class="pill">KPIs de Negócio</span>
+</div>
+</div>
+</div>
+</div>
 </section>
 
 <!-- CASE -->
 <section class="section" id="case">
-  <div class="inner">
-    <div class="reveal">
-      <div class="section-label">Case Principal</div>
-      <div class="section-divider"></div>
-    </div>
-
-    <div class="reveal">
-      <div class="case-hero">
-        <div>
-          <p class="case-kicker-sm">Itaú Unibanco · Pagamento de Boletos · 2024–2025</p>
-          <p class="case-title">Como estruturei um problema de negócio em hipóteses investigáveis<br>e ajudei a reduzir entradas no Bacen em 40%</p>
-        </div>
-        <div class="result-bubble">
-          <div class="rb-n">−40%</div>
-          <div class="rb-l">Entradas no Bacen</div>
-        </div>
-      </div>
-
-      <div class="bento">
-
-        <div class="bc bc-wide">
-          <div class="bc-lbl">Contexto & Priorização</div>
-          <div class="bc-div"></div>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;">
-            <div>
-              <h3>Por que foi priorizado</h3>
-              <ul class="blist">
-                <li>OKR do banco: <strong>reduzir entradas no Bacen</strong></li>
-                <li>Produto de alto volume — mesmo <strong>&lt;2% de reclamações</strong> representa impacto regulatório real</li>
-                <li>Itaú liderava ranking de sentimentos negativos: <strong>15,05%</strong></li>
-              </ul>
-            </div>
-            <div>
-              <h3>Sentimentos negativos — mercado</h3>
-              <div class="barchart">
-                <div class="bar-row"><span class="bar-name">Itaú</span><div class="bar-track"><div class="bar-fill red" style="width:100%"></div></div><span class="bar-val">15%</span></div>
-                <div class="bar-row"><span class="bar-name">Banco do Brasil</span><div class="bar-track"><div class="bar-fill red" style="width:91%"></div></div><span class="bar-val">13,7%</span></div>
-                <div class="bar-row"><span class="bar-name">Caixa</span><div class="bar-track"><div class="bar-fill red" style="width:82%"></div></div><span class="bar-val">12,3%</span></div>
-                <div class="bar-row"><span class="bar-name">Santander</span><div class="bar-track"><div class="bar-fill blue" style="width:64%"></div></div><span class="bar-val">9,6%</span></div>
-                <div class="bar-row"><span class="bar-name">Nubank</span><div class="bar-track"><div class="bar-fill blue" style="width:46%"></div></div><span class="bar-val">6,9%</span></div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="bc bc-tall">
-          <div class="bc-lbl">Insight Central</div>
-          <div class="bc-div"></div>
-          <h3>O cliente queria rastreabilidade, não comprovante</h3>
-          <p style="margin-top:10px;">
-            Jornada real reconstruída a partir da <strong>análise de transcrições de atendimento</strong> da central:<br>
-            cliente ia à agência → gerente ligava para a central → central não conseguia 
-            fornecer o status do repasse.<br><br>
-            <strong>Falha sistêmica de visibilidade</strong>, não de pagamento.
-          </p>
-          <div class="verbatim">
-            <div class="vb-tag">Reclamação original</div>
-            <div class="vb-text">"Realizei um pagamento de boleto, o receptor não reconheceu o pagamento."</div>
-          </div>
-        </div>
-
-        <div class="bc bc-bl">
-          <div class="bc-lbl">Metodologia — Como cheguei lá</div>
-          <div class="bc-div"></div>
-          <div class="tag-row">
-            <span class="tag-mini q2">Análise qualitativa</span>
-            <span class="tag-mini q1">Análise quantitativa</span>
-          </div>
-          <div class="slist">
-            <div class="sitem"><span class="snum">1</span><p><strong>Definição da amostra e estruturação de hipóteses:</strong> 6 meses de reclamações registradas, cruzadas com a base de pagamentos via SQL (ambiente AWS) para isolar os casos relacionados ao repasse</p></div>
-            <div class="sitem"><span class="snum">2</span><p><strong>Codificação temática assistida por IA:</strong> usei Copilot para clusterizar os relatos em categorias e validei manualmente os clusters gerados — principal ofensor: busca por comprovante de repasse</p></div>
-            <div class="sitem"><span class="snum">3</span><p><strong>Análise qualitativa de transcrições reais</strong> de atendimento da central, para reconstruir a jornada ponta a ponta do cliente (agência → central → repasse) e identificar o ponto exato de falha</p></div>
-            <div class="sitem"><span class="snum">4</span><p><strong>Benchmark competitivo</strong> com 2.066 comentários de mercado, para confirmar que o problema era específico da nossa jornada e não do produto boleto em si (96,5% de sentimento positivo nos concorrentes)</p></div>
-          </div>
-        </div>
-
-        <div class="bc bc-bm">
-          <div class="bc-lbl">Solução em 2 Frentes</div>
-          <div class="bc-div"></div>
-          <div class="sol-pair">
-            <div class="sol-item">
-              <div class="si-tag">Curto prazo</div>
-              <div class="si-title">Script da Central</div>
-              <div class="si-desc">Atualização do roteiro da central garantindo que o repasse é efetivado junto ao pagamento</div>
-            </div>
-            <div class="sol-item">
-              <div class="si-tag">Médio prazo</div>
-              <div class="si-title">Boleto 360°</div>
-              <div class="si-desc">Interface de status em tempo real para gerentes e central de atendimento</div>
-            </div>
-          </div>
-          <ul class="blist" style="margin-top:14px;">
-            <li>Participei do <strong>refinamento e especificação</strong> do Boleto 360°</li>
-            <li>Acompanhei métricas até a <strong>validação do resultado final</strong></li>
-          </ul>
-        </div>
-
-      </div>
-    </div>
-  </div>
+<div class="inner">
+<div class="reveal">
+<div class="section-label">Case Principal</div>
+<div class="section-divider"></div>
+</div>
+<div class="reveal">
+<div class="case-hero">
+<div>
+<p class="case-kicker-sm">Grande banco de varejo · Pagamento de Boletos · 2024–2025</p>
+<p class="case-title">Como estruturei um problema de negócio em hipóteses investigáveis e ajudei a reduzir reclamações regulatórias em dezenas de %</p>
+</div>
+<div class="result-bubble">
+<div class="rb-n">↓ 40%</div>
+<div class="rb-l">Reclamações regulatórias</div>
+</div>
+</div>
+<div class="bento">
+<div class="bc bc-wide">
+<div class="bc-lbl">Contexto & Priorização</div>
+<div class="bc-div"></div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;">
+<div>
+<h3>Por que foi priorizado</h3>
+<ul class="blist">
+<li>OKR do banco: <strong>reduzir reclamações registradas junto ao órgão regulador</strong> — e o banco estava entre os líderes do ranking setorial de sentimento negativo para esse tipo de transação</li>
+<li>Produto de alto volume — mesmo uma <strong>pequena fração de reclamações</strong> representa impacto regulatório real</li>
+</ul>
+</div>
+<div>
+<h3>Sentimento negativo — comparativo setorial</h3>
+<p style="font-size:12px;font-weight:300;color:var(--ink3);line-height:1.75;">
+Um <strong>benchmark de mercado</strong> com grandes bancos do setor mostrou que a instituição
+liderava o índice de sentimento negativo relacionado a boletos, com folga em relação aos
+concorrentes diretos. Isso apontava pra um problema específico da nossa jornada, não do
+produto boleto em si.
+</p>
+</div>
+</div>
+</div>
+<div class="bc bc-tall">
+<div class="bc-lbl">Insight Central</div>
+<div class="bc-div"></div>
+<h3>O cliente queria rastreabilidade, não comprovante</h3>
+<p style="margin-top:10px;">
+Jornada real reconstruída a partir da <strong>análise de transcrições de atendimento</strong> da central:<br>
+cliente ia à agência → gerente ligava para a central → central não conseguia
+fornecer o status do repasse.<br><br>
+<strong>Falha sistêmica de visibilidade</strong>, não de pagamento.
+</p>
+<div class="verbatim">
+<div class="vb-tag">Padrão de reclamação</div>
+<div class="vb-text">Clientes relatavam que o recebedor não reconhecia o pagamento do boleto, mesmo após a confirmação do débito no extrato.</div>
+</div>
+</div>
+<div class="bc bc-bl">
+<div class="bc-lbl">Metodologia — Como cheguei lá</div>
+<div class="bc-div"></div>
+<div class="tag-row">
+<span class="tag-mini q2">Análise qualitativa</span>
+<span class="tag-mini q1">Análise quantitativa</span>
+</div>
+<div class="slist">
+<div class="sitem"><span class="snum">1</span><p><strong>Definição da amostra e estruturação de hipóteses:</strong> 6 meses de reclamações registradas, cruzadas com a base de pagamentos via SQL (ambiente cloud) para isolar os casos relacionados ao repasse</p></div>
+<div class="sitem"><span class="snum">2</span><p><strong>Codificação temática assistida por IA:</strong> usei IA generativa para clusterizar os relatos em categorias e validei manualmente os clusters gerados — principal ofensor: busca por comprovante de repasse</p></div>
+<div class="sitem"><span class="snum">3</span><p><strong>Análise qualitativa de transcrições reais</strong> de atendimento da central, para reconstruir a jornada ponta a ponta do cliente (agência → central → repasse) e identificar o ponto exato de falha</p></div>
+<div class="sitem"><span class="snum">4</span><p><strong>Benchmark competitivo</strong> com uma amostra ampla de comentários de mercado, para confirmar que o problema era específico da nossa jornada e não do produto boleto em si (predominância de sentimento positivo nos concorrentes)</p></div>
+</div>
+</div>
+<div class="bc bc-bm">
+<div class="bc-lbl">Solução em 2 Frentes</div>
+<div class="bc-div"></div>
+<div class="sol-pair">
+<div class="sol-item">
+<div class="si-tag">Curto prazo</div>
+<div class="si-title">Script da Central</div>
+<div class="si-desc">Atualização do roteiro da central garantindo que o repasse é efetivado junto ao pagamento</div>
+</div>
+<div class="sol-item">
+<div class="si-tag">Médio prazo</div>
+<div class="si-title">Status em Tempo Real</div>
+<div class="si-desc">Interface de status em tempo real para gerentes e central de atendimento</div>
+</div>
+</div>
+<ul class="blist" style="margin-top:14px;">
+<li>Participei do <strong>refinamento e especificação</strong> da nova interface de status</li>
+<li>Acompanhei métricas até a <strong>validação do resultado final</strong></li>
+</ul>
+</div>
+</div>
+<div class="bc" style="border-radius:var(--r); margin-top:3px;">
+<div class="bc-lbl">Projeto Complementar</div>
+<div class="bc-div"></div>
+<div style="display:grid; grid-template-columns:1fr auto; gap:24px; align-items:center;">
+<div>
+<h3>Workshop de IA — Do Zero ao MVP</h3>
+<p>
+Estruturei e criei os materiais de um workshop sobre Inteligência Artificial aplicada a produto:
+um ebook, um conjunto de <strong>skills reutilizáveis</strong> (kickoff de projeto, kickoff de dados e
+product discovery) e slides explicando conceitos como tokenização de forma acessível.
+É onde uso IA generativa fora da análise — na estruturação e no design do próprio conteúdo.
+</p>
+</div>
+<div class="sol-pair" style="grid-template-columns:1fr; min-width:180px;">
+<div class="sol-item">
+<div class="si-tag">Material</div>
+<div class="si-title">Ebook + Skills</div>
+<div class="si-desc"><a href="https://thaynapfreire.github.io/workshop-materiais/" target="_blank" style="color:var(--blue);">Ver ebook</a> · <a href="https://github.com/thaynapfreire/workshop-materiais" target="_blank" style="color:var(--blue);">Repositório</a></div>
+</div>
+</div>
+</div>
+</div>
+</div>
 </section>
 
 <!-- EXPERIÊNCIA -->
 <section class="section" id="exp">
-  <div class="inner">
-    <div class="reveal">
-      <div class="section-label">Experiência</div>
-      <div class="section-divider"></div>
-    </div>
-    <div class="exp-list">
-
-      <div class="exp-card reveal">
-        <div>
-          <p class="exp-role">Analista de Produto (Estágio) · BI & Dados</p>
-          <p class="exp-co">Itaú Unibanco · Time de Pagamentos (Boletos)</p>
-          <ul class="blist">
-            <li>Extração, tratamento e análise de dados em ambiente <strong>AWS com SQL</strong>, medindo funil de conversão e cruzando comportamento do usuário (FullStory) com dados transacionais</li>
-            <li>Construção e evolução de <strong>dashboards analíticos</strong> (Excel e FullStory) para acompanhamento de performance e indicadores de produto</li>
-            <li>Documentação de métricas, indicadores e regras de negócio — tagueamento, validação de logs e governança para garantir rastreabilidade e qualidade das informações</li>
-            <li>Investiguei causa raiz de reclamações regulatórias combinando dados quantitativos (SQL) e qualitativos (transcrições de atendimento), com apoio de IA para codificação temática, resultando em <strong>redução de 40% nas entradas no Bacen</strong></li>
-            <li>Monitoramento de KPIs estratégicos (Bacen, CES, NPS), conectando indicadores a objetivos de negócio e experiência do cliente</li>
-            <li>Colaboração multidisciplinar com Design, Engenharia, Dados e áreas de Negócio para garantir entregas alinhadas à estratégia</li>
-          </ul>
-        </div>
-        <p class="exp-period">Out 2024 – Fev 2026</p>
-      </div>
-
-      <div class="exp-card reveal">
-        <div>
-          <p class="exp-role">UX Researcher</p>
-          <p class="exp-co">Portal da Vela</p>
-          <ul class="blist">
-            <li>Mapeei comportamento de usuários e identifiquei oportunidades com base em dados qualitativos e quantitativos</li>
-            <li>Construí indicadores de acompanhamento e apoiei priorização de melhorias com base em insights</li>
-            <li>Colaborei com time multidisciplinar em ambiente ágil para desenvolvimento de produto digital</li>
-          </ul>
-        </div>
-        <p class="exp-period">Jun – Set 2023</p>
-      </div>
-
-      <div class="exp-card reveal">
-        <div>
-          <p class="exp-role">UX Researcher</p>
-          <p class="exp-co">Flash Tattoo</p>
-          <ul class="blist">
-            <li>Conduzi entrevistas em profundidade com usuários e levantamento de necessidades e dores</li>
-            <li>Validei hipóteses de produto e apoiei a definição de oportunidades de negócio</li>
-          </ul>
-        </div>
-        <p class="exp-period">Ago – Out 2021</p>
-      </div>
-
-    </div>
-  </div>
+<div class="inner">
+<div class="reveal">
+<div class="section-label">Experiência</div>
+<div class="section-divider"></div>
+</div>
+<div class="exp-list">
+<div class="exp-card reveal">
+<div>
+<p class="exp-role">Analista de Produto (Estágio) · BI & Dados</p>
+<p class="exp-co">Grande banco de varejo · Time de Pagamentos (Boletos)</p>
+<ul class="blist">
+<li>Extração, tratamento e análise de dados em <strong>ambiente cloud com SQL</strong>, medindo funil de conversão e cruzando comportamento do usuário com dados transacionais</li>
+<li>Construção e evolução de <strong>dashboards analíticos</strong> para acompanhamento de performance e indicadores de produto</li>
+<li>Documentação de métricas, indicadores e regras de negócio — tagueamento, validação de logs e governança para garantir rastreabilidade e qualidade das informações</li>
+<li>Investiguei a causa raiz de reclamações regulatórias cruzando dados quantitativos (SQL) e qualitativos (transcrições de atendimento), com apoio de IA para codificação temática — resultado: <strong>redução relevante nas reclamações junto ao órgão regulador</strong></li>
+<li>Monitoramento de KPIs estratégicos (indicadores regulatórios, CES, NPS), conectando indicadores a objetivos de negócio e experiência do cliente</li>
+<li>Colaboração multidisciplinar com Design, Engenharia, Dados e áreas de Negócio para garantir entregas alinhadas à estratégia</li>
+</ul>
+</div>
+<p class="exp-period">Out 2024 – Fev 2026</p>
+</div>
+<div class="exp-card reveal">
+<div>
+<p class="exp-role">UX Researcher</p>
+<p class="exp-co">Portal da Vela</p>
+<ul class="blist">
+<li>Mapeei comportamento de usuários e identifiquei oportunidades com base em dados qualitativos e quantitativos</li>
+<li>Construí indicadores de acompanhamento e apoiei priorização de melhorias com base em insights</li>
+<li>Colaborei com time multidisciplinar em ambiente ágil para desenvolvimento de produto digital</li>
+</ul>
+</div>
+<p class="exp-period">Jun – Set 2023</p>
+</div>
+<div class="exp-card reveal">
+<div>
+<p class="exp-role">UX Researcher</p>
+<p class="exp-co">Flash Tattoo</p>
+<ul class="blist">
+<li>Conduzi entrevistas em profundidade com usuários e levantamento de necessidades e dores</li>
+<li>Validei hipóteses de produto e apoiei a definição de oportunidades de negócio</li>
+</ul>
+</div>
+<p class="exp-period">Ago – Out 2021</p>
+</div>
+</div>
+</div>
 </section>
 
 <!-- FORMAÇÃO & CERTS -->
 <section class="section" id="form" style="background:var(--bg);">
-  <div class="inner">
-    <div class="reveal">
-      <div class="section-label">Formação & Certificações</div>
-      <div class="section-divider"></div>
-    </div>
-    <div class="two-col-grid reveal">
-      <div>
-        <div class="fc-entry">
-          <p class="fc-title">Ciência de Dados</p>
-          <p class="fc-sub">Cruzeiro do Sul Virtual · 2026–2028</p>
-        </div>
-        <div class="fc-entry">
-          <p class="fc-title">Gestão da Tecnologia da Informação</p>
-          <p class="fc-sub">Estácio · 2024–2026</p>
-        </div>
-        <div class="fc-entry">
-          <p class="fc-title">UX Design</p>
-          <p class="fc-sub">Tera · 2021</p>
-        </div>
-      </div>
-      <div class="cert-grid">
-        <div class="cert-item">
-          <div><p class="cert-name">Mecanismo Jeito Itaú de Produtar</p><p class="cert-org">Itaú Unibanco</p></div>
-          <span class="cert-year">2025</span>
-        </div>
-        <div class="cert-item">
-          <div><p class="cert-name">Practitioner D&A Foundation</p><p class="cert-org">Itaú Unibanco</p></div>
-          <span class="cert-year">2025</span>
-        </div>
-        <div class="cert-item">
-          <div><p class="cert-name">SQL para Análise de Dados</p><p class="cert-org">Udemy</p></div>
-          <span class="cert-year">2025</span>
-        </div>
-        <div class="cert-item">
-          <div><p class="cert-name">Formação Completa em Scrum</p><p class="cert-org">Unieducar</p></div>
-          <span class="cert-year">2024</span>
-        </div>
-        <div class="cert-item">
-          <div><p class="cert-name">Fundamentos de IA Moderna: LLMs</p><p class="cert-org">DIO</p></div>
-          <span class="cert-year">2026</span>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="inner">
+<div class="reveal">
+<div class="section-label">Formação & Certificações</div>
+<div class="section-divider"></div>
+</div>
+<div class="two-col-grid reveal">
+<div>
+<div class="fc-entry">
+<p class="fc-title">Ciência de Dados</p>
+<p class="fc-sub">Cruzeiro do Sul Virtual · 2026–2028</p>
+</div>
+<div class="fc-entry">
+<p class="fc-title">UX Design</p>
+<p class="fc-sub">Tera · 2021</p>
+</div>
+</div>
+<div class="cert-grid">
+<div class="cert-item">
+<div><p class="cert-name">Introdução à Ciência de Dados</p><p class="cert-org">FGV</p></div>
+<span class="cert-year">2026</span>
+</div>
+<div class="cert-item">
+<div><p class="cert-name">Python</p><p class="cert-org">Hashtag Treinamentos</p></div>
+<span class="cert-year">2026</span>
+</div>
+<div class="cert-item">
+<div><p class="cert-name">SQL para Análise de Dados</p><p class="cert-org">Udemy</p></div>
+<span class="cert-year">2025</span>
+</div>
+<div class="cert-item">
+<div><p class="cert-name">Formação Completa em Scrum</p><p class="cert-org">Unieducar</p></div>
+<span class="cert-year">2024</span>
+</div>
+<div class="cert-item">
+<div><p class="cert-name">Fundamentos de IA Moderna: LLMs</p><p class="cert-org">DIO</p></div>
+<span class="cert-year">2026</span>
+</div>
+</div>
+</div>
+</div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <p class="footer-name">Thayná Freire</p>
-  <div class="footer-links">
-    <a href="mailto:thaynapfreire@gmail.com">thaynapfreire@gmail.com</a>
-    <a href="https://linkedin.com/in/thaynapfreire" target="_blank">LinkedIn</a>
-    <a href="tel:+5561996710477">(61) 99671-0477</a>
-  </div>
+<p class="footer-name">Thayná Freire</p>
+<div class="footer-links">
+<a href="mailto:thaynapfreire@gmail.com">thaynapfreire@gmail.com</a>
+<a href="https://linkedin.com/in/thaynapfreire" target="_blank">LinkedIn</a>
+</div>
 </footer>
 
 <script>
 function goTo(id) {
-  document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
 }
-
 // Nav active state on scroll
 const sections = document.querySelectorAll('section[id]');
 const navBtns = document.querySelectorAll('.nav-btn');
 const sectionIds = ['hero','sobre','case','exp'];
-
 window.addEventListener('scroll', () => {
-  let current = '';
-  sections.forEach(s => {
-    if (window.scrollY >= s.offsetTop - 100) current = s.id;
-  });
-  navBtns.forEach((btn, i) => {
-    btn.classList.toggle('active', sectionIds[i] === current);
-  });
+let current = '';
+sections.forEach(s => {
+if (window.scrollY >= s.offsetTop - 100) current = s.id;
 });
-
+navBtns.forEach((btn, i) => {
+btn.classList.toggle('active', sectionIds[i] === current);
+});
+});
 // Reveal on scroll
 const reveals = document.querySelectorAll('.reveal');
 const observer = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.classList.add('visible');
-      observer.unobserve(e.target);
-    }
-  });
+entries.forEach(e => {
+if (e.isIntersecting) {
+e.target.classList.add('visible');
+observer.unobserve(e.target);
+}
+});
 }, { threshold: 0.12 });
 reveals.forEach(r => observer.observe(r));
 </script>
